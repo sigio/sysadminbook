@@ -12,3 +12,7 @@ If you want to run Linux virtual machines in the cloud, various options used and
 - Scaleway
 
 With most of these cloud-providers you can quickly and easily deploy one or more Linux systems running CentOS, Debian or Ubuntu within a minute and for less then $5 a month.
+
+To get the full experience, it's best to run or create multiple virtual machines running the different distributions and versions, but you can continue with only one or two virtual machines that fit the platform you are interested in.
+
+Where there are significant differences between different Linux distributions or versions, this will be highlighted in the chapter
