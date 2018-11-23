@@ -169,7 +169,7 @@ LVM Thin Provisioning
 This will use normal LVM partitioning, but allow you to create filesystems larger then the available disk-space (thin-provisioned). This only works as long as you are actually using less space than your disks provide.
 
 Btrfs
-^^^^^
+"""""
 
 This option is only available on CentOS 7.x and RHEL 7.x, as this partitioning method was introduced after CentOS 6.x became available. It's currently not recommended to use it, as support for it has been dropped again in RHEL 8.x, and it's only a *technical preview* feature in 7.x.
 
