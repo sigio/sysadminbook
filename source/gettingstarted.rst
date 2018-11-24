@@ -1,4 +1,5 @@
-# Getting Started
+Getting Started
+===============
 
 To get started learning about Linux System Administration, you will need access to a couple of virtual machines that will be used to run the various exercises and tasks. The quick and easy solution to get started is using a cloud-bases virtual machine, as these are cheap, quick to setup and quick to recover.
 

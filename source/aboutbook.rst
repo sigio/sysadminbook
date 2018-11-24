@@ -1,4 +1,5 @@
-# About this Book
+About this Book
+===============
 
 This book is authored and published as an Open Source book. It is written in MarkDown and versioned using Git, currently on bitbucket and published and rendered through LeanPub. Additions, corrections and contributions are welcome.
 
