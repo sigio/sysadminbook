@@ -1,3 +1,6 @@
+.. MIT License
+   Copyright © 2018 Sig-I/O Automatisering / Mark Janssen, Licensed under the MIT license
+
 Getting Started
 ===============
 

@@ -1,7 +1,10 @@
+.. MIT License
+   Copyright © 2018 Sig-I/O Automatisering / Mark Janssen, Licensed under the MIT license
+
 About this Book
 ===============
 
-This book is authored and published as an Open Source book. It is written in MarkDown and versioned using Git, currently on bitbucket and published and rendered through LeanPub. Additions, corrections and contributions are welcome.
+This book is authored and published as an Open Source book. It is written using the reStructuredText markup language and versioned using Git, currently on bitbucket and rendered through sphinx. Additions, corrections and contributions are welcome.
 
 When this book reaches a more mature version, content will probably be moved to github to facilitate quick development and contrinutions by readers and users of this book.
 
@@ -10,3 +13,38 @@ This book will help you learn Linux System Administration using various distribu
 Where applicable, the book will explain the theory behind something, and also document the various methods to configure a specific feature using the commandline or configuration-files and/or various configuration-tools provided by the distribution. Where applicable, the more modern method of configuring things using Configuration Management tooling such as Ansible will also be highlighted.
 
 The book will help you prepare for various certifications and exams like RHCSA or LPI-1 and LPI-2 or an equivalent level of System Administration knowledge usable on any Linux platform and environment.
+
+Contributions and Acknowledgements
+----------------------------------
+
+.. todo:: Add list of contributors and acknowledgements
+
+
+License
+-------
+
+This source and rendered versions of this book are covered under the MIT license, which is included below. The copyright to the content belongs to Mark Janssen, Sig-I/O Automatisering. 
+
+.. note::
+  MIT License
+
+  Copyright © 2018 Sig-I/O Automatisering / Mark Janssen
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+

@@ -1,3 +1,6 @@
+.. MIT License
+   Copyright © 2018 Sig-I/O Automatisering / Mark Janssen, Licensed under the MIT license
+
 About the Author
 ================
 
@@ -5,7 +8,8 @@ Mark Janssen is a freelance Linux system administrator, trainer and consultant a
 
 While giving various trainings on Linux he decided that material better connected to his teaching method would be preferred. This caused the creation of this Open Source book.
 
-Mark Janssen's website can be found at [https://sig-io.nl](sig-io.nl).
+Mark Janssen's website can be found at https://sig-io.nl/
+
 
 .. seealso:: See Also here
 
