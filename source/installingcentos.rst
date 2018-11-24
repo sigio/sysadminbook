@@ -13,7 +13,7 @@ While it's possible to install CentOS on smaller systems, this is not recommende
 
 Installation of CentOS and RHEL can be done from the installation CD/DVD, and optionally from a PXE-boot environment, usb-storage or various other methods. This book will describe the CD/DVD method initially, as this is the easiest and has the least requirements on the user and the environment.
 
-.. sidebar:: ⚠️ Minimal Image
+.. sidebar:: Minimal Image
 
   If possible, don't use the minimal image, as this makes installation of CentOS a lot harder
 
@@ -47,7 +47,7 @@ When you have selected *Install CentOS 7*, the screen may flicker a while, some 
 If you are not a native english speaker you may be tempted to install CentOS in your native language, however I would like to recommend that all installations should be done in English, as this will make it a lot easier to troubleshoot any installation and runtime issues. Searching the internet for english language error-messages will provide you with more and usually better results than localised versions. Besides that, various translations are rather incomplete or of limited
 quality, resuling in a system with half english and half localised strings.
 
-.. sidebar:: ⚠️ RHEL-8 Beta
+.. sidebar:: RHEL-8 Beta
 
    The RHEL8-Beta release uses the same screen as the CentOS 7.x and 6.x installer, however, the layout has changed from a vertical to a horizontal orientation.
 
@@ -56,7 +56,7 @@ After pressing enter, or selecting *Continue* with the mouse, you will be moved 
 .. image:: _static/images/centos-7-install-main-1.png
    :alt: Main installation screen for CentOS 7.x
 
-The installer will let you know which steps you have to (minimally) perform before starting installation by highlighting these tasks in red and displaying the warning icon (⚠️ ).
+The installer will let you know which steps you have to (minimally) perform before starting installation by highlighting these tasks in red and displaying the warning icon.
 
 The various sections of the installer are (in preferred order of configuring them):
 
@@ -141,7 +141,7 @@ To install CentOS we can configure everything manually or let the installer conf
 
 *Encryption*: If you toggle the *Encrypt my data* option, CentOS will configure full-disk-encryption on your system. If you do this you will need to enter a disk-encryption password during installation and at every boot. For now we will not use encryption, but know that it is available and will prevent unauthenticated access to your data if enabled.
 
-.. sidebar:: ⚠️ Quick-start
+.. sidebar:: Quick-start
 
    If you just want to get going quickly, just select *Automatically configure partitioning* and hit *Done*
 
@@ -176,7 +176,7 @@ This option is only available on CentOS 7.x and RHEL 7.x, as this partitioning m
 Creating the essential partitions
 """""""""""""""""""""""""""""""""
 
-.. sidebar:: ⚠️ UEFI
+.. sidebar:: UEFI
 
    On UEFI systems you need to have or create an EFI System partition where Linux will place some files to allow your system to boot. On BIOS systems this is not needed. The installer will create the EFI partition for you if it detects you are running under UEFI.
 
@@ -185,7 +185,7 @@ The recommendation is to select *LVM* partitions, and then click the *Click here
 .. image:: _static/images/centos-7-install-default-partitions-1.png
    :alt: Default Partitions (BIOS Mode)
 
-.. sidebar:: ⚠️ Swap space
+.. sidebar:: Swap space
 
    Swap space is used as temporary expansion space for application memory, when your system is in an *out of memory* situation. It's recommended to have at least 1 GB of swap-space, but going over 4 GB will usually be overkill, on some systems the installer will dedicate more diskspace to swapspace then to all other filesystems combined. This isn't very practical, so try to limit your swap to less then 8 GB maximum. If you later decide you need more swap-space, you can always add more
    when needed. You can also choose to go without swap completely, on some systems this is preferred.

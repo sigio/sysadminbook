@@ -269,7 +269,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'LinuxSystemAdministration.tex', 'Linux System Administration Documentation',
+    (master_doc, 'LinuxSystemAdministration.tex', 'Learning Linux System Administration',
      'Mark Janssen (Sig-I/O)', 'manual'),
 ]
 
@@ -311,7 +311,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'linuxsystemadministration', 'Linux System Administration Documentation',
+    (master_doc, 'linuxsystemadministration', 'Learning Linux System Administration',
      [author], 1)
 ]
 
@@ -326,8 +326,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'LinuxSystemAdministration', 'Linux System Administration Documentation',
-     author, 'LinuxSystemAdministration', 'One line description of project.',
+    (master_doc, 'LinuxSystemAdministration', 'Learning Linux System Administration',
+     author, 'LinuxSystemAdministration', 'Learning Linux System Administration',
      'Miscellaneous'),
 ]
 

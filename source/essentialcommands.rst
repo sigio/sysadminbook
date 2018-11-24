@@ -126,7 +126,7 @@ rmdir   Remove (empty) directories  rmdir /tmp/myfiles
 
 These basic file manipulation commands will let you copy, erase and move-around files or create and remove directories. The **cp** and **mv** commands need at least two arguments, a source and a target to work on. If you specify more then 2 arguments, and the last argument is a directory, all other arguments are considered as source, and multiple files will be copied or moved to the specified target directory.
 
-.. sidebar:: ⚠️ rmdir vs rm -r
+.. sidebar:: rmdir vs rm -r
 
   As stated, the **rmdir** command will only remove empty directories. If you want to remove a directory, and all files and other directories within this directory, you can use the **rm -r** command. But be careful, if used carelessly, it can delete large amounts of files before you notice any possible mistake. If using **rm -r** and not feeling comfortable, add the **-i** option, which asks for confirmation before deleting files and directories.
 

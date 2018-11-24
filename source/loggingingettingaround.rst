@@ -34,7 +34,7 @@ the command with sudo, for example:
 .. image:: _static/images/centos-7-first-use-sudo.png
    :alt: Logging in and using Sudo to become root
 
-.. sidebar:: ⚠️ First time using sudo
+.. sidebar:: First time using sudo
 
   The first time that you run sudo, you will be greeted with the text: *We trust you have received....*
   The next times you run sudo, it will only ask for your password. If you have run sudo successfully in the last 5 minutes (by default) you will not have to re-enter your password.
@@ -79,7 +79,7 @@ An alias is basically a shortcut command, where the typed command is replaced by
   alias ls='ls --color=auto'
   alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 
-.. sidebar:: ⚠️ Aliases for the root user on CentOS and RHEL
+.. sidebar:: Aliases for the root user on CentOS and RHEL
 
   On these systems, the root user has a few default aliases, which replace the *rm*, *mv* and *cp* commands with aliases that include the *-i* option. This causes these commands to ask for confirmation before executing their respective tasks.
 
