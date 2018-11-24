@@ -3,10 +3,26 @@ Logging in and getting around with Linux
 
 Now that we have a Linux system installed, we can login and start using it. If you have installed a Linux system without a GUI, you will be greeted by the 'login' program, running on a text-console. This will look somewhat like the following:
 
-.. image:: _static/images/centos-7-getty-login-1.png
-   :alt: Getty and login running on CentOS 7.x
+.. code-block:: none
+
+  CentOS Linux 7 (Core)
+  Kernel 3.10.0-862.el7.x86_64 on an x86_64
+
+  centos7 login:
 
 You can enter the username to your account, or use the *root* account. On the following password prompt, enter the password for the account, and you will be presented with a shell. Note that the text entered after the password prompt is not printed to the screen to prevent leaking your password to someone looking over your shoulder.
+
+.. code-block:: none
+
+  centos7 login: yourname
+  Password:
+  Last login: Sat Nov 24 12:34:56 on tty1
+  [yourname@centos7 ~]$
+
+If you specify an incorrect password, or if the useraccount you are trying to use doesn't actually exist, the system will only tell you *Login incorrect*, and present you with a new *login:* prompt. This is done so the system doesn't leak information about available accounts.
+
+Becoming Root
+-------------
 
 For most system-administration tasks you will need to have root privileges. It's considered best-practice however to limit usage of the root account as much as possible. To reconsile these two statements, it's best to always login as yourself, and gain administrative privileges only when needed. You can for example use the **sudo -s** command to start a new shell as *root*, if you have sudo-permissions. Alternatively you can run single commands in the context of the root user by pre-pending
 the command with sudo, for example:
@@ -24,6 +40,9 @@ the command with sudo, for example:
   The next times you run sudo, it will only ask for your password. If you have run sudo successfully in the last 5 minutes (by default) you will not have to re-enter your password.
 
 As you can see, after running the **sudo -s** command, the prompt has changed from *[yourname@centos7 ~]$* to *[root@centos7 yourname]#*. The prompt will always show you some critical information about who you are, where you are in the filesystem and if you are *root* or not.
+
+The Prompt
+----------
 
 The first part of the prompt is your current username, in the example here *yourname*. Then, after the @ sign, is the hostname of the system you are currently logged in on. Since Linux systems are usually connected to over a network, and it's easy to hop from one system to another, it's really important to always have a visual indication on what system you currently are, to prevent you from doing something on the wrong system. The third bit of the prompt, here *~* initially and
 *yourname* after the sudo command, tells you where you are in the filesystem. By default CentOS and RHEL put the name of the current directory in the prompt. Some other systems put the entire path here, which will result in a longer prompt if you are deep in a directory structure.
@@ -155,9 +174,9 @@ Note that the root user has different directories in their default PATH then non
 .. code-block:: bash
   :emphasize-lines: 1,3
 
-  [yourname@centos7 ~]$ echo "Hello World"
+  $ echo "Hello World"
   Hello World
-  [yourname@centos7 ~]$ /bin/echo "Hello World"
+  $ /bin/echo "Hello World"
   Hello World
 
 If we specify the **--help** option to the commands, we can see that they respond differently based on this input:
@@ -165,12 +184,11 @@ If we specify the **--help** option to the commands, we can see that they respon
 .. code-block:: bash
   :emphasize-lines: 1,3
 
-  [yourname@centos7 ~]$ echo --help
+  $ echo --help
   --help
-  [yourname@centos7 ~]$ /bin/echo --help
+  $ /bin/echo --help
   Usage: /bin/echo [SHORT-OPTION]... [STRING]...
   or:  /bin/echo LONG-OPTION
   Echo the STRING(s) to standard output.
   ... (output snipped) ...
 
-More text

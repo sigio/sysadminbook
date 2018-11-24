@@ -9,13 +9,15 @@ Linux System Administration for CentOS/Debian/Ubuntu
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
 
    aboutauthor
    aboutbook
    gettingstarted
    linuxintroduction
    installingcentos
+   loggingingettingaround
+   essentialcommands
 
 
 Indices and tables
