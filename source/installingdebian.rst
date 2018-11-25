@@ -26,4 +26,3 @@ locales
 keyboard (American English)
 Loading installer components (automattic)
 Configure the network (automattic)
-

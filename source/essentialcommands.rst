@@ -49,9 +49,9 @@ cd and pwd
   $ pwd
   /home/yourname
 
-As can be seen in the example above, the **pwd** command will print the directory we are currently in back to the shell, and the **cd** command can be used to change to a different directory. If you run the **cd** command with an argument, you change to the specified directory, when running **cd** without any arguments, it will bring you to your *HOME* directory. The *HOME* directory is the directory you enter when you login to a system and where you can write your own files.
+As can be seen in the example above, the **pwd** command will print the directory we are currently in back to the shell, and the **cd** command can be used to change to a different directory. If you run the **cd** command with an argument, you change to the specified directory, when running **cd** without any arguments, it will bring you to your *HOME* directory. The *HOME* directory is the directory you enter when you login to a system and where you can write your own files. The location of your *HOME* directory can also be found in the :envvar:`HOME` environment variable.
 
-To navigate to various directories you can either specify a complete and absolute path, or use relative paths. An absulute path is a path that starts with a **/** character, denoting the *root* of the filesystem. In the example above, **/usr/local** is an absolute path. In the example below we will use relative paths:
+To navigate to various directories you can either specify a complete and absolute path, or use relative paths. An absulute path is a path that starts with a :file:`/` character, denoting the *root* of the filesystem. In the example above, :file:`/usr/local` is an absolute path. In the example below we will use relative paths:
 
 .. code-block:: bash
   :emphasize-lines: 1,3,4,6,7,8,10,11
@@ -69,7 +69,7 @@ To navigate to various directories you can either specify a complete and absolut
   $ pwd
   /home/yourname
 
-By using *..*, you indicate that you want to go up one level in the directory-tree, combining this with other directory names you can navigate back down other branches of the tree. If you are not to familiar with this method of navigating the filesystem you can always use absolute paths as an alternative method of navigating, but this will usually require some more typing.
+By using :file:`..`, you indicate that you want to go up one level in the directory-tree, combining this with other directory names you can navigate back down other branches of the tree. If you are not to familiar with this method of navigating the filesystem you can always use absolute paths as an alternative method of navigating, but this will usually require some more typing.
 
 .. index:: cat, less
 
@@ -269,7 +269,7 @@ this help-text will be printed when you used the command with invalid options.
 /usr/share/doc
 ^^^^^^^^^^^^^^
 
-Another location where you may find documentation on commands is in the /usr/share/doc
+Another location where you may find documentation on commands is in the :file:`/usr/share/doc`
 directory on your filesystem. Here you will usually find things like example configuration
 files and sometimes complete user-manuals for more advanced software packages.  
 

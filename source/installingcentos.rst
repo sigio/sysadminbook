@@ -105,7 +105,7 @@ Installation Source and Software Selection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have booted from an *non-minimal* installation cd/dvd image, you don't need to (re)configure the software source. When you have used a *minimal*, you need to tell the installer where it can find the remaining software-packages that might be used in the installation. You can specify a location on a FTP or HTTP server or an NFS share that has a mirror of the CentOS packages. You need to specify the path to the architecture directory that contains the packages for your system, in
-most cases this will be the *os/x86_64* directory.
+most cases this will be the :file:`os/x86_64` directory.
 
 .. image:: _static/images/centos-7-install-installationsource-custom-1.png
    :alt: Specifying a custom installation source
@@ -138,7 +138,7 @@ The *Installation Destination* specifies on which drive(s) you would like to ins
 .. image:: _static/images/centos-7-install-destination-1.png
    :alt: Install destination
 
-Your first drive will usually be called *sda*, or *vda* if you are running on a virtual-machine. If the installer detects multiple drives, these will also be listed. If you have an ISCSI SAN, luns (storage devices) from this SAN can be attached and configured with the *Add A Disk* button.
+Your first drive will usually be called :file:`sda`, or :file:`vda` if you are running on a virtual-machine. If the installer detects multiple drives, these will also be listed. If you have an ISCSI SAN, luns (storage devices) from this SAN can be attached and configured with the *Add A Disk* button.
 
 To install CentOS we can configure everything manually or let the installer configure your disk manually, it's also possible to change some options after selecting *Automatic configure partitioning* to tune the system to your liking.
 
@@ -183,7 +183,7 @@ Creating the essential partitions
 
    On UEFI systems you need to have or create an EFI System partition where Linux will place some files to allow your system to boot. On BIOS systems this is not needed. The installer will create the EFI partition for you if it detects you are running under UEFI.
 
-The recommendation is to select *LVM* partitions, and then click the *Click here to create them automatically* button. This will configure the correct partitions for your system. You will then either see a */boot*, */*, and a *swap* partition listed, or, if running on an UEFI system, also an *EFI System Partition*. The screenshot below if from a BIOS system, so it doesn't have the EFI partition.
+The recommendation is to select *LVM* partitions, and then click the *Click here to create them automatically* button. This will configure the correct partitions for your system. You will then either see a :file:`/boot`, :file:`/`, and a :file:`swap` partition listed, or, if running on an UEFI system, also an *EFI System Partition*. The screenshot below if from a BIOS system, so it doesn't have the EFI partition.
 
 .. image:: _static/images/centos-7-install-default-partitions-1.png
    :alt: Default Partitions (BIOS Mode)
@@ -197,9 +197,9 @@ The installer will choose sane defaults for the sizes of various partitions or f
 
 If you want to leave more space available for later use, you can change the sizes on the partitions by entering a new value in the *Desired Capacity* field, and hitting *Update Settings*. These are the values I will use:
 
-* /boot: 512 MiB
-* /: 10 GiB
-* swap: 256 MiB
+* :file:`/boot`:    512 MiB
+* :file:`/`:         10 GiB
+* :file:`swap`:     256 MiB
 
 After making all your adjustment, hit the *Done* button. If there are any warnings these will be printed in a bar at the bottom of the screen.
 

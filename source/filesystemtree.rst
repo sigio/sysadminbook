@@ -41,7 +41,7 @@ While on a Debian 9.x system we will see:
 As can be seen, there are some slight differences, which we weill get to in a moment, but
 mostly both systems have the same directory-structure.
 
-The **/boot** directory holds the files needed to start the Linux kernel. Here you will
+The :file:`/boot` directory holds the files needed to start the Linux kernel. Here you will
 find files related to the GRUB bootloader, and one or more sets of a kernel file (vmlinuz)
 and initramfs (initrd on Debian) files with matching versions. On most systems /boot will
 actually be on a different filesystem from the root, and you will usually find this to be
@@ -55,7 +55,7 @@ actually be on a different filesystem from the root, and you will usually find t
   was to keep UNIX small enough that it would fit on a single disk.
 
   As UNIX got bigger and bigger more storage was needed, and a second disk was added,
-  and mounted under /usr. This used to be the directory where the home-directories for the
+  and mounted under :file:`/usr`. This used to be the directory where the home-directories for the
   users were kept (hence the name). By moving the users' files to the second disk, more
   space became available on the root disk to store programs.
 
@@ -76,70 +76,70 @@ actually be on a different filesystem from the root, and you will usually find t
   /usr/bin and /usr/sbin, Eventually we should be able to finally say goodbye to some
   duplicate directories.
 
-The **/bin** directory holds binaries that are used early in the boot process. On
+The :file:`/bin` directory holds binaries that are used early in the boot process. On
 CentOS/RHEL 7 systems and later, this will be a symlink to /usr/bin, On Debian 9 and
 CentOS 6.x this will still be it's own directory. This directory is included in the PATH
 on systems where it is still used. (RHEL 6.x, Debian, Ubuntu)
 
-Next up, the **/dev** directory holds device-files. Here you will find files used to
+Next up, the :file:`/dev` directory holds device-files. Here you will find files used to
 interact with the hardware in the system, there are files for all detected disks,
 storage-devices, soundcards, webcams, serial ports, etc.
 
-The **/etc** directory is used to store various configuration files used by the system,
-for example /etc/passwd, /etc/group, /etc/services and many others
+The :file:`/etc` directory is used to store various configuration files used by the system,
+for example :file:`/etc/passwd`, :file:`/etc/group`, :file:`/etc/services` and many others
 
-**/home** holds the home-directories for the users on the system. Likewise **/root** can
+:file:`/home` holds the home-directories for the users on the system. Likewise :file:`root` can
 be seen as the home-directory for the sysadmin account *root*.
 
-**/lib** and **/lib64** contain library-files used by the system, historically there was
+:file:`/lib` and :file:`/lib64` contain library-files used by the system, historically there was
 only /lib, but with the migration to 64-bit systems, /lib64 was added, as 64-bit systems
 had the possibility to run 32-bit applications besides 64-bit applications, but these
 would then need 2 sets of library-files installed. On CentOS 7 and beyond, both these
 directories are symlinks pointing to their replacements in /usr/lib and /usr/lib64.
 
-**/media** is an empty mointpoint, used by the Desktop Environment to mount hot-pluggable
+:file:`/media` is an empty mointpoint, used by the Desktop Environment to mount hot-pluggable
 storage devices such as CD-ROM's, USB-Sticks etc.
 
-**/mnt** is also an empty mountpoint, which can be used by the sysadmin to temporarily
+:file:`/mnt` is also an empty mountpoint, which can be used by the sysadmin to temporarily
 mount external storage devices or network storage devices.
 
-**/opt**, another empty by-default directory can be used as a location to install
+:file:`/opt` another empty by-default directory can be used as a location to install
 third-party software. LInux distributions will not touch this directory with their
 package-management software.
 
-**/proc**, is a special filesystem that only exists in memory and is populated on-the-fly
+:file:`/proc` is a special filesystem that only exists in memory and is populated on-the-fly
 when accessed by a user or process. This filesystem contains information-files about
 the system, hardware and running processes. Some system-settings can be tweaked by writing
 certain values to specific files under /proc.
 
-**/run** is a tmpfs type filesystem. This means that it also only exists in the memory of
+:file:`/run` is a tmpfs type filesystem. This means that it also only exists in the memory of
 a running system, but files can be stored here while the system is running. If the system
 crashes or reboots, the files stored are lost. This filesystem is used to store small
 files used in some housekeeping functions of running processes. Most files here will be
 used as *PID* files or as *lock-files*.
 
-**/sbin**, like the /bin directory, holds executables, or binaries, but the /sbin
+:file:`/sbin` like the /bin directory, holds executables, or binaries, but the /sbin
 directory isn't present in the PATH of a normal user by default. The programs in this
 directory are mostly meant for use by the *root* user or the system itself.
 
-**/srv** will usually be empty as well, but can be used by some software to hold files
+:file:`/srv` will usually be empty as well, but can be used by some software to hold files
 related to services provided by the system, for example, the files for the tftp and ftp
 services, or web-content from some webservers. On RHEL and CentOS this directory isn't
 used often.
 
-A much used directory, **/tmp** will hold temporary files. This directory is writable by
+A much used directory, :file:`/tmp` will hold temporary files. This directory is writable by
 all users on the system, and will be used by various processes to temporarily store files.
 Some systems will actually store /tmp in memory, which guarantees that it will be empty
 after a restart, but both Debian and CentOS currently store data saved here on disk at
 this time if using the default settings. Usually there are however scripts and systems to
 cleanup older files stored in /tmp to prevent it running out of hand.
 
-One of the bigger directories, **/usr**, holds many directories with the same name we have
+One of the bigger directories, :file:`/usr` holds many directories with the same name we have
 already seen in the root, you will find for example /usr/lib, /usr/bin and /usr/sbin here.
 Most files under /usr are part of programs installed on the system, either as executable
 program, library or part of the data-files that belong to these programs.
 
-The last directory **/var** also has many subdirectories. /var is mostly used for
+The last directory :file:`/var` also has many subdirectories. /var is mostly used for
 data-files, files that will change when programs are used, such as databases or
 cache-files for the package-management system. Historically, the mail-files for users are
 also kept in /var/mail.

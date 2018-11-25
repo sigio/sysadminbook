@@ -17,12 +17,15 @@ The book will help you prepare for various certifications and exams like RHCSA o
 Typography and Layout
 ---------------------
 
-Where possible, commands that can be typed are formatted as **bold** and possible
-filenames and arguments are written in *cursive*. In code-samples and screen views,
-code-blocks are used, with lines where commands were given highlighted, and output lines
-not highlighted, like so:
+Where possible, commands that can be typed are formatted as **bold**
 
-.. code-block:: bash
+File and directory names will be presented as follows:
+
+:file:`filename` or :file:`/directory/path/` 
+
+In code-samples and screen views, code-blocks are used, with lines where commands were given highlighted:
+
+.. code-block:: none
   :emphasize-lines: 1,3
 
   $ some-command-here
@@ -33,6 +36,8 @@ not highlighted, like so:
 
 In longer examples, or where further text will refer to line-numbers, these can be found
 in the left margin.
+
+Environment variables are presented as :envvar:`ENV-VAR`
 
 
 Contributions and Acknowledgements

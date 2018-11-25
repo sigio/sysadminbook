@@ -67,8 +67,8 @@ tty:
   (view will switch to a new login-session on /dev/tty4)
 
 Centos and RHEL systems will usually have the Graphical Environment running on the first
-tty, /dev/tty1, which is reached with Alt-F1, Debian and Ubuntu systems usually have their
-Graphical Environment running on /dev/tty7, which can then be viewed by pressing Alt-F7.
+tty, :file:`/dev/tty1`, which is reached with Alt-F1, Debian and Ubuntu systems usually have their
+Graphical Environment running on :file:`/dev/tty7`, which can then be viewed by pressing Alt-F7.
 When already in a Graphical Environment, you need to add the Ctrl-button to the
 key-combination to go back to a text-only environment.
 
@@ -105,9 +105,15 @@ sudo, for example:
   re-enter your password.
 
 As you can see, after running the **sudo -s** command, the prompt has changed from
-*[yourname@centos7 ~]$* to *[root@centos7 yourname]#*. The prompt will always show you
-some critical information about who you are, where you are in the filesystem and if you
-are *root* or not.
+
+*[yourname@centos7 ~]$*
+
+to
+
+*[root@centos7 yourname]#*
+
+The prompt will always show you some critical information about who you are, where you
+are in the filesystem and if you are *root* or not.
 
 .. index:: prompt, $PS1
 
@@ -115,7 +121,7 @@ The Prompt
 ----------
 
 The first part of the prompt is your current username, in the example here *yourname*.
-Then, after the @ sign, is the hostname of the system you are currently logged in on.
+Then, after the *@* sign, is the hostname of the system you are currently logged in on.
 Since Linux systems are usually connected to over a network, and it's easy to hop from one
 system to another, it's really important to always have a visual indication on what system
 you currently are, to prevent you from doing something on the wrong system. The third bit
@@ -221,8 +227,7 @@ directory names in various colors)
 
 You can define your own aliases with the **alias** command. These aliases will only work
 in the currently running shell session. To keep aliases for new shell invocations they
-need to be configured in your *profile* or *.bash.rc* file.
-
+need to be configured in your :file:`.profile` or :file:`.bash.rc` file.
 
 .. index:: builtins, alias, bg, cd, echo, exec, exit, export, false, fg, history, jobs, kill, pwd, read, set, source, test, true, ulimit, umask, unalias, unset, wait
 
@@ -274,11 +279,11 @@ determine if the given command is an alias or internal-command and when this is 
 case, it will search for the command on the filesystem.
 
 The shell will not just scan the entire disk for possible commands, but will only look for
-locations specified in it's *PATH*. The *PATH* variable lists the various directories
+locations specified in it's :envvar:`PATH`. The :envvar:`PATH` variable lists the various directories
 which are scanned in order for matching commands. If a command is present in multiple
 locations in the path, the first matched version will be executed.
 
-You can inspect your current **PATH** variable using the built-in **echo** command. Shell
+You can inspect your current :envvar:`PATH` variable using the built-in **echo** command. Shell
 variables are referenced using the variable-name prefixed with the **$** sign:
 
 .. code-block:: bash
@@ -290,7 +295,7 @@ variables are referenced using the variable-name prefixed with the **$** sign:
 Alternatively, you can inspect all shell variables with either the **set** builtin, or the
 **env** external command.
 
-Note that the root user has different directories in their default PATH then non-root
+Note that the root user has different directories in their default :envvar:`PATH` then non-root
 users, and every user is free to change their path temporarily of permanently to suit
 their needs. If you want to run a command that can be found on more then one location on
 the system, or that also exists as a builtin, you can run it by explicitly specifying it's
@@ -327,7 +332,7 @@ I/O Redirection
 ---------------
 
 Any process on Linux that wants to interact with the world, will need to do this by
-working with files or devices. Devices are presented as special files in the */dev*
+working with files or devices. Devices are presented as special files in the :file:`/dev`
 filesystem in Linux, so for most if not all commands, working with devices is
 indistinguishable from working with files.
 
@@ -350,8 +355,8 @@ file-handles that every process will always have initially, these correspond wit
     error and warning messages. Normally these will also end up on the screen, mixed with
     other output from STDOUT.
 
-These 3 default file-handles can also be accessed from the filesystem as */dev/stdin*,
-*/dev/stdout* and */dev/stderr*.
+These 3 default file-handles can also be accessed from the filesystem as :file:`/dev/stdin`,
+:file:`/dev/stdout` and :file:`/dev/stderr`.
 
 =========== ======= ==========  ===============
 Device      Handle  Default     How to redirect
@@ -382,7 +387,7 @@ For example, we can run a command, and redirect the output to a file
 As you can see, on line 1, we run the **date** command without any output-redirection, so
 the output is sent to it's default location, which is /dev/stdout, which results in output
 being written to the shell-session we are currently in. In the second command, we redirect
-the output to the file */tmp/currenttime* and notice that there is no output back to the
+the output to the file :file:`/tmp/currenttime` and notice that there is no output back to the
 shell, we are just greeted with a new prompt. If we then look at the file where we
 redirected the ouput of the date command into, using **cat /tmp/currenttime**, we can see
 that the output was placed here.
@@ -423,7 +428,7 @@ overwriting it, we can redirect with **>>**.
 In the example above, we also see a version of input redirection, on line 16 the **cat**
 command is used with it's input redirected from the /tmp/output file. This result is the
 same as the usage of **cat** on line 11, but functionally, the version on line 16 uses
-/dev/stdin, while the version on line 11 opens the file named on the commandline as a new
+:file:`/dev/stdin`, while the version on line 11 opens the file named on the commandline as a new
 file-handle (number 3), and then proceeeds to read from there. 
 
 .. index:: 2>, 2>&1
@@ -442,7 +447,7 @@ file-handle (number 3), and then proceeeds to read from there.
 In the example above, we see redirects for STDOUT and STDERR on line 1, and a new
 redirection on line 2. With the **2>&1** notation we tell the shell to redirect STDERR
 (2>) to the location of filehandle 1 (&1), so, send error-output to the same location we
-are sending the normal output, and the normal output was redirected to /tmp/find-both, so
+are sending the normal output, and the normal output was redirected to :file:`/tmp/find-both`, so
 the error-output ends up in here as well. This can be verified by checking the file-sizes,
 the filesize of find-both is (almost) the same as the other two combined.
 
