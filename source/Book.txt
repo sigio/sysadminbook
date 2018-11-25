@@ -1,3 +1,0 @@
-aboutauthor.md
-aboutbook.md
-gettingstarted.md

@@ -3,8 +3,8 @@
 
 .. Linux System Administration documentation master file
 
-Linux System Administration for CentOS/Debian/Ubuntu
-====================================================
+Linux System Administration for CentOS, RedHat Enterprise, Debian and Ubuntu
+============================================================================
 
 Contents:
 
@@ -24,6 +24,5 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
 

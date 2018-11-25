@@ -44,6 +44,8 @@ the command with sudo, for example:
 
 As you can see, after running the **sudo -s** command, the prompt has changed from *[yourname@centos7 ~]$* to *[root@centos7 yourname]#*. The prompt will always show you some critical information about who you are, where you are in the filesystem and if you are *root* or not.
 
+.. index:: prompt, $PS1
+
 The Prompt
 ----------
 
@@ -64,6 +66,8 @@ The commands a shell interprets can be deviced in the following categories:
 * Aliases
 * Internal Commands
 * External Commands
+
+.. index:: aliases, alias
 
 Aliases
 ^^^^^^^
@@ -122,6 +126,9 @@ And in the shell you would then see something like the following (but with some 
 
 You can define your own aliases with the **alias** command. These aliases will only work in the currently running shell session. To keep aliases for new shell invocations they need to be configured in your *profile* or *.bash.rc* file.
 
+
+.. index:: builtins, alias, bg, cd, echo, exec, exit, export, false, fg, history, jobs, kill, pwd, read, set, source, test, true, ulimit, umask, unalias, unset, wait
+
 Internal Commands
 ^^^^^^^^^^^^^^^^^
 
@@ -173,6 +180,8 @@ You can inspect your current **PATH** variable using the built-in **echo** comma
 Alternatively, you can inspect all shell variables with either the **set** builtin, or the **env** external command.
 
 Note that the root user has different directories in their default PATH then non-root users, and every user is free to change their path temporarily of permanently to suit their needs. If you want to run a command that can be found on more then one location on the system, or that also exists as a builtin, you can run it by explicitly specifying it's full (or relative) path as part of the command. For example, here we first use the *builtin* **echo** command, and then the *external* **echo** command.
+
+.. index:: echo
 
 .. code-block:: bash
   :emphasize-lines: 1,3
