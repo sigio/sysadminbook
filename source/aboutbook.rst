@@ -14,6 +14,27 @@ Where applicable, the book will explain the theory behind something, and also do
 
 The book will help you prepare for various certifications and exams like RHCSA or LPI-1 and LPI-2 or an equivalent level of System Administration knowledge usable on any Linux platform and environment.
 
+Typography and Layout
+---------------------
+
+Where possible, commands that can be typed are formatted as **bold** and possible
+filenames and arguments are written in *cursive*. In code-samples and screen views,
+code-blocks are used, with lines where commands were given highlighted, and output lines
+not highlighted, like so:
+
+.. code-block:: bash
+  :emphasize-lines: 1,3
+
+  $ some-command-here
+  it's output
+  $ another command here
+  more output
+  and more
+
+In longer examples, or where further text will refer to line-numbers, these can be found
+in the left margin.
+
+
 Contributions and Acknowledgements
 ----------------------------------
 

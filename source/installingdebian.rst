@@ -19,27 +19,6 @@ on 1 GB of ram and 2 GB of diskspace, but if you want to run a graphical environ
 will need some more diskspace.
 
 
-.. note:: oefening 1
-
-  :kbd:`C-x C-f`, 
-
-.. note:: oefening 2
-
-  something blah blah blah
-
-
-
-Section to cross-reference
---------------------------
-
-This is the text of the section.
-
-Verwijzing naar oefening :ref:`my-figure` dflgkdfd
-
-
-
-FIXME
-
 bootmenu
 language
 location US or Other/Europe/Netherlands
