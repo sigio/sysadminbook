@@ -10,14 +10,20 @@ Contents:
 
 .. toctree::
    :maxdepth: 4
+   :numbered:
+
 
    aboutauthor
    aboutbook
    gettingstarted
    linuxintroduction
    installingcentos
+   installingdebian
    loggingingettingaround
    essentialcommands
+   filesystemtree
+
+   newpage
 
 
 Indices and tables

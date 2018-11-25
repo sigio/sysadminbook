@@ -10,10 +10,14 @@ Alternatively you can create virtual machines using software like VMWare (Window
 
 If you want to run Linux virtual machines in the cloud, various options used and recommended  by the writer of this book are:
 
-- DigitalOcean.com
-- Vultr.net
+- DigitalOcean.com (affiliate link: https://m.do.co/c/f72d82754e8b )
+- Vultr.com (affiliate link: https://www.vultr.com/?ref=7153334 )
 - Hetzner Cloud
 - Scaleway
+
+If you wish to sponsor the writer of this book, please use the affiliate links when
+creating an account, this will help me pay my hosting-bills and allow me to run more
+test-machines for trying out the different Linux distributions used in this book.
 
 With most of these cloud-providers you can quickly and easily deploy one or more Linux systems running CentOS, Debian or Ubuntu within a minute and for less then $5 a month.
 

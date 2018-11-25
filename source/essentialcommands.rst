@@ -6,6 +6,8 @@ Essential Shell Commands
 
 In the following chapters of this book we will run into very many different commands, and it's not possible to explain all commands before then appear in some examples or are needed for some tasks we will run into. This chapter will describe some of the most-often used commands and occasionally give example output.
 
+.. index:: cd, pwd
+
 We will start with some commands that are used to navigate the filesystem and inspect files:
 
 ======= =========================== ======================
@@ -69,6 +71,8 @@ To navigate to various directories you can either specify a complete and absolut
 
 By using *..*, you indicate that you want to go up one level in the directory-tree, combining this with other directory names you can navigate back down other branches of the tree. If you are not to familiar with this method of navigating the filesystem you can always use absolute paths as an alternative method of navigating, but this will usually require some more typing.
 
+.. index:: cat, less
+
 cat and less
 ------------
 
@@ -102,6 +106,8 @@ The **cat** command (which is short for concatinate), can be used to concatinate
 If you **cat** a larger file, or multiple files at the same time, the contents of these files will fly over your screen quickly. If you want to actually have the possibility of reading the contents, it's better to use what's called a *pager*. Linux comes with multiple alternative pagers, classical UNIX systems had the *more* pager, which you can also find on most Linux systems. However there is usually also a pager called **less**. The *less* pager will print the contents of the
 file one screen-full at a time and will either scroll a single line, or a full screenlength up or down through the file when you press one of the arrow-keys, page-up or page-down or the space key. If you want to exit less, you can press the **q** to exit back to your shell. Another handy feature of *less* is that it can be used to search for text though a file, when entering **/sometext** it will scroll to the next occurance of *sometext* and highlight the text in the file.
 
+.. index:: ls
+
 ls
 --
 
@@ -116,6 +122,8 @@ File manipulation commands
 --------------------------
 
 Next up are some file-manipulation commands:
+
+.. index:: cp, mv, rm, mkdir, rmdir
 
 ======= =========================== ===============================
 Command Function                    Safe Example
@@ -160,4 +168,108 @@ These basic file manipulation commands will let you copy, erase and move-around 
   -rw-r--r--.  1 yourname yourname 2205 Nov 24 03:21 passwd
   $ rm /tmp/mydirectory/passwd
   $ rmdir /tmp/mydirectory
+
+
+Editing files
+-------------
+
+.. sidebar:: Never use word-processors on textfiles
+
+  If you have a GUI installed, you may be tempted to open textfiles with a wordprocessor like LibreOffice, OpenOffice or something along those lines. While this may be fine, if not a bit overkill, to read files, never use a tool like this for editing plain-text files, as these tools will often make subtle changes in the contents of the files which will have significant impact when these are used as configuration files. Always use a dedicated plain-text only editor like vim or mcedit
+
+Another important and often performed task of any System Administrator is editing textfiles. Unix en Linux systems are filled with many plain-text files, and they are used as configuration files for almost all services and programs installed on Linux systems. On most Linux systems you will find a number of different editors and each has their own strenghts and weaknesses. The popular choices amoung experienced Linux System Administrators are vi/vim and Emacs, however, both of these
+text-editors have quite the learning-curve. New Linux users and System Administrators are probably better off starting with a simpler editor like nano, joe, jed, or mcedit when working on remote hosts or on the console. When working with a GUI, there are some more choices which work and look like regular text-editors as used on Windows for example.
+
+There will be a chapter on working with VI and VIM later, as VI is considered the 'standard' editor, and will almost always be present on any Linux or UNIX system and has some really powerful features. For now, we will let you use any editor of your choice, and just give you some pointers to start with here. These more user-friendly editors are usually not installed by default on a fresh Linux system, so we will also list the commands used to install them here.
+
+=========== ==========================  ========================
+Editor      Install on CentOS/RHEL      Install on Debian/Ubuntu
+=========== ==========================  ========================
+vim         # yum install vim-enhanced  # apt install vim
+nano        # yum install nano          # apt install nano
+mcedit      # yum install mc            # apt install mc
+=========== ==========================  ========================
+
+Finding help
+------------
+
+If this book were to describe any and all commands available on an average Linux system,
+we would be here a while and this would not be a good investment of your and my time.
+Luckily your Linux system comes with a lot of documentation and methods for getting
+information about what various commands do, how they work, and how you use them. So it's
+much better to just tell you how and where to find this information.
+
+.. index:: man
+
+man
+^^^
+
+The first command that can tell you a lot about other available commands that you should
+know about it the **man** command. It is a browser for the *manual pages*. Many commands
+installed on Linux come with manual pages. You can start by looking at the man-pages of
+varuous commands we used before, or the manual-page of the **man** command itself:
+
+.. code-block:: bash
+  :emphasize-lines: 1,2,3,4
+
+  $ man man
+  $ man cat
+  $ man bash
+  $ man mv cp ls rm
+
+When running the **man** command with (one or more) arguments, it will look for the
+manual-page for the specified argument and display this page in a pager. You can scroll up
+and down with the arrow-keys or space, page-up and page-down. If you want to go back to
+your shell, press *q*. In the last command above, multiple manual pages will be opened,
+one after the other, and pressing *q* will move you to the next one until all pages have
+been seen
+
+Manpages will usually contain all the information you will need, describing all the
+options and arguments a command will accept, how it does what it does, which files it
+might use or read from, what environment-settings may influence its task, and what
+error-codes it might return. It usually also has a section called 'SEE ALSO' with other
+manual-pages you could take a look at for related commands.
+
+.. index:: info, pinfo
+
+info / pinfo
+^^^^^^^^^^^^
+
+Some tools do not have manual-pages, or only have very limited manual-pages, which direct
+you to check out a section in the **info** tool. Using the **info** or **pinfo** command,
+you can read documentation written in the *info* system. This system is somewhat more like
+webpages, with a hypertext like structure with links between various sections.
+
+The info pages are mostly used by GNU tools, while manual-pages are used by most other
+software.
+
+.. index:: --help
+
+command help
+^^^^^^^^^^^^
+
+Most commands in linux will also have a built-in help option. This will usually give you a
+short (a few lines, upto maybe a screenfull) summary of the options and usage methods of
+the command. Some commands will show this information if given the **--help** argument,
+others only respond to **-h** or some other option. Often a text telling you how to get to
+this help-text will be printed when you used the command with invalid options.
+
+.. code-block:: bash
+  :emphasize-lines: 1,2,3,4
+
+  $ cp --help
+  Usage: cp [OPTION]... [-T] SOURCE DEST
+    or:  cp [OPTION]... SOURCE... DIRECTORY
+    or:  cp [OPTION]... -t DIRECTORY SOURCE...
+  Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+  
+  Mandatory arguments to long options are mandatory for short options too.
+  ...(snipped another 70 lines of output)...
+
+/usr/share/doc
+^^^^^^^^^^^^^^
+
+Another location where you may find documentation on commands is in the /usr/share/doc
+directory on your filesystem. Here you will usually find things like example configuration
+files and sometimes complete user-manuals for more advanced software packages.  
 
