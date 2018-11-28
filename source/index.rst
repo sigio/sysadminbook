@@ -22,6 +22,7 @@ Contents:
    loggingingettingaround
    essentialcommands
    filesystemtree
+   users
 
    newpage
 
