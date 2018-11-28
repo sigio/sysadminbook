@@ -23,6 +23,7 @@ the following (on a CentOS 7 system).
 
 .. code-block:: bash
   :emphasize-lines: 1
+  :caption: The root directory on CentOS / RedHat
 
   $ ls -F /
   bin@   dev/  home/  lib64@  mnt/  proc/  run/   srv/  tmp/  var/
@@ -32,6 +33,7 @@ While on a Debian 9.x system we will see:
 
 .. code-block:: bash
   :emphasize-lines: 1
+  :caption: The root directory on Debian
 
   $ ls -F /
   bin/    etc/            lib/    mnt/    root/   srv/    var/
@@ -158,6 +160,7 @@ back and forth between 2 paths, **cd -** will get the job done quickly.
 
 .. code-block:: bash
   :emphasize-lines: 1,2,4,5,7,8,10,11
+  :caption: Using cd -
 
   $ cd /usr/local/bin
   $ pwd
@@ -183,6 +186,7 @@ will show the current directory stack, with the first entry always being the cur
 
 .. code-block:: bash
   :emphasize-lines: 1,2,4,6,8,10,12,14,16,18,20
+  :caption: Pushd and popd
 
   $ cd ~
   $ pushd /usr/local/bin
@@ -211,6 +215,7 @@ create an alias or variable for this directory.
 
 .. code-block:: bash
   :emphasize-lines: 1,2,3,5,6,7
+  :caption: Changing directories
 
   $ alias cdproj='cd /usr/local/share/applications'
   $ cdproj
@@ -248,6 +253,7 @@ will then rebuild the database, and locate will have access to all newly scanned
 
 .. code-block:: bash
   :emphasize-lines: 1
+  :caption: Find and locate
 
   $ touch ~/some-new-file       # create a new file
   $ locate some-new-file        # no results returned

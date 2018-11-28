@@ -25,6 +25,7 @@ cd and pwd
 
 .. code-block:: bash
   :emphasize-lines: 1,3,4,6,20,21
+  :caption: using cd and pwd
 
   $ pwd
   /home/yourname
@@ -55,6 +56,7 @@ To navigate to various directories you can either specify a complete and absolut
 
 .. code-block:: bash
   :emphasize-lines: 1,3,4,6,7,8,10,11
+  :caption: using cd and pwd
 
   $ pwd
   /home/yourname
@@ -145,6 +147,7 @@ These basic file manipulation commands will let you copy, erase and move-around 
 
 .. code-block:: bash
   :emphasize-lines: 1,3,4,6,20,21
+  :caption: Using rm and rmdir
 
   $ mkdir /tmp/mydirectory
   $ ls -la /tmp/mydirectory/
@@ -211,6 +214,7 @@ varuous commands we used before, or the manual-page of the **man** command itsel
 
 .. code-block:: bash
   :emphasize-lines: 1,2,3,4
+  :caption: using man
 
   $ man man
   $ man cat
@@ -256,6 +260,7 @@ this help-text will be printed when you used the command with invalid options.
 
 .. code-block:: bash
   :emphasize-lines: 1,2,3,4
+  :caption: command help
 
   $ cp --help
   Usage: cp [OPTION]... [-T] SOURCE DEST

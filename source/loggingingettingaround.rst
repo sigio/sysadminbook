@@ -9,6 +9,7 @@ installed a Linux system without a GUI, you will be greeted by the 'login' progr
 running on a text-console. This will look somewhat like the following:
 
 .. code-block:: none
+  :caption: The login prompt
 
   CentOS Linux 7 (Core)
   Kernel 3.10.0-862.el7.x86_64 on an x86_64
@@ -21,6 +22,7 @@ shell. Note that the text entered after the password prompt is not printed to th
 to prevent leaking your password to someone looking over your shoulder.
 
 .. code-block:: none
+  :caption: Logged in
 
   centos7 login: yourname
   Password:
@@ -60,6 +62,7 @@ tty:
 
 .. code-block:: bash
   :emphasize-lines: 1,3
+  :caption: switching tty's
 
   $ tty
   /dev/tty2
@@ -91,6 +94,7 @@ can run single commands in the context of the root user by pre-pending the comma
 sudo, for example:
 
 .. code-block:: bash
+  :caption: using sudo
 
   $ sudo id
 
@@ -168,6 +172,7 @@ require typing a long and complex command.
 
 .. code-block:: none
   :emphasize-lines: 1
+  :caption: the alias command
 
   $ alias
   alias egrep='egrep --color=auto'
@@ -211,6 +216,7 @@ directory names in various colors)
 
 .. code-block:: none
   :emphasize-lines: 1
+  :caption: using an alias
 
   [yourname@centos7 ~]$ ll /boot
   total 91224
@@ -288,6 +294,7 @@ variables are referenced using the variable-name prefixed with the **$** sign:
 
 .. code-block:: bash
   :emphasize-lines: 1
+  :caption: The PATH variable
 
   $ echo $PATH
   /usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/yourname/ ...
@@ -306,6 +313,7 @@ full (or relative) path as part of the command. For example, here we first use t
 
 .. code-block:: bash
   :emphasize-lines: 1,3
+  :caption: Internal vs External commands
 
   $ echo "Hello World"
   Hello World
@@ -317,6 +325,7 @@ differently based on this input:
 
 .. code-block:: bash
   :emphasize-lines: 1,3
+  :caption: Internal vs External commands
 
   $ echo --help
   --help
@@ -377,6 +386,7 @@ For example, we can run a command, and redirect the output to a file
 
 .. code-block:: bash
   :emphasize-lines: 1,3,4
+  :caption: Redirecting command output
 
   $ date
   Sat Nov 24 23:32:58 CET 2018
@@ -403,6 +413,7 @@ overwriting it, we can redirect with **>>**.
 .. code-block:: bash
   :emphasize-lines: 1,3,4,5,6,8,9,10,11,16
   :linenos:
+  :caption: Output redirection, input redirection
 
   $ echo 1
   1
@@ -436,6 +447,7 @@ file-handle (number 3), and then proceeeds to read from there.
 .. code-block:: bash
   :emphasize-lines: 1,2
   :linenos:
+  :caption: Stderr redirected to stdout
 
   $ find / > /tmp/find-stdout 2> /tmp/find-stderr
   $ find / > /tmp/find-both 2>&1
@@ -465,6 +477,7 @@ input, and returns these to the output:
 
 .. code-block:: bash
   :emphasize-lines: 1
+  :caption: using a pipe
 
   $ ls | wc 
   18      18     571
@@ -477,6 +490,7 @@ you can start building more advanced pipelines.
 
 .. code-block:: bash
   :emphasize-lines: 1
+  :caption: Using pipes
 
   $ cat /etc/passwd | grep yourname | cut -d: -f 6 | rev
   emanruoy/emoh/
