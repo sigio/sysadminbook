@@ -8,6 +8,8 @@ The Linux permission system is based on the concept of users and groups. Every f
 system is owned by a user and group combination, every running process runs with a specific
 user and group permission.
 
+.. index:: /etc/passwd
+
 The /etc/passwd file
 ----------------------
 
@@ -63,28 +65,140 @@ entry as the example here:
 
   yourname:x:1000:1000:Your Name:/home/yourname:/bin/bash
 
+.. index:: /etc/shadow, shadow
 
+The /etc/shadow file
+----------------------
 
+The :file:`/etc/shadow` file contains the fields related to user-accounts that do not need
+to publicly readable. This is primarily the password, but it also contains fields related
+to account and password expiration.
 
-.. seealso:: See Also here
+The basic format of the :file:`/etc/shadow` file is the same as the :file:`/etc/passwd`
+file, a line of semi-colon seperated fields:
 
-.. todo:: Something todo
+* login name: The username for the user, the same as in :file:`/etc/passwd`
 
-.. warning:: A Warning
+.. sidebar:: Hashing
 
-.. note:: Beware of this note
+  Passwords are hashed. A hash function is any function that can be used to map data of
+  arbitrary size to data of a fixed size. They are also useful in cryptography. A cryptographic hash
+  function allows one to easily verify that some input data maps to a given hash value,
+  but if the input data is unknown, it is deliberately difficult to reconstruct it (or any
+  equivalent alternatives) by knowing the stored hash value.
 
+  In plain english, this means that an input will be transferred to a fixed length output,
+  which has no clear and simple way which can be decoded back in the original input. So a
+  Linux system doesn't actually know you password, but it re-hashes the password you
+  enter and compares this to the stored hash. If they match, your password was correct, if
+  they don't match, then login is rejected.
 
-.. sidebar:: Minimal Image
+* password: The encrypted password for the user.
 
-  If possible, don't use the minimal image, as this makes installation of CentOS a lot harder
+* date of last password change: When the user has changed their password for the last
+  time, expressed in days since Jan 1 1970.
 
-  
-.. image:: _static/images/centos-7-install-boot.png
-   :alt: Installing CentOS 7.x
+* minimum password age: The minimum age a password must have before a user is allowed to
+  change it, represented in days. A value of *0* means that there is no minimum, which is
+  also a recommended value, as users should always be able to change a password,
+  especially when it has been compromised.
 
+* maximum password age: How long a password can be used before it must be changed,
+  specified in number of days. A zero in this field means the password doesn't expire.
+  Setting this value to something lower than the minimum password age will deny
+  password-changes by the user.
+
+* password warning period: The number of days before password-expiration that the user
+  will get a warning printed when they login.
+
+* password inactivity period: This specifies the amount of days after password-expiration
+  that a user can still login with their old password, but will be forced to change their
+  password before they are actually logged in. After this period a login attempt will be
+  denied, even if the password would have been correct.
+
+* reserved: There is one reserved field, which has no currently planned function.
+
+.. code-block:: none
+  :caption: An entry from /etc/shadow
+  :name: shadow-entry
+
+  yourname:$6$ls6.d7Yg$0g8jRJnHRWIcLwaitgI....aXixdPUB4YjNLg1bc.C/:17862:0:99999:7:::
+
+.. index:: password, hash, md5, sha-256, sha-512
+
+The password field in /etc/shadow
+---------------------------------
+
+The password for a useraccount is stored, in a hashed form, in the password field of the
+:file:`/etc/shadow` file. This field consists of 3 parts, prefixed by dollar-symbols ($).
+These fields are *id, *salt* and *hash*.
+
+* id: This tells the system which password hash or encryption-method is used. Commonly
+  used values are:
+
+  * 1, for MD5 hashes
+  * 5, for SHA-256 hashes
+  * 6, for SHA-512 hashes
+
+* salt: A salt-value, which is a randomly generated string used to add to the password
+  before it is hashed. This is done to prevent make it harder to pre-compute password-hash
+  dictionaries used in password-cracking.
+
+* hash: The hashed version of the password and the salt value, hashed with the algorithm
+  specified in the 'id' field.
+
+The example that was shown above therefor used a SHA-512 hash (type 6), with a salt of
+*ls6.d7Yg*.
+
+.. index:: useradd
+
+Adding a user-account
+---------------------
+
+You can create new useraccounts and change settings on existing users  with the
+**useradd** command. The minimal invocation of **useradd** is just a simple: 
 
 .. code-block:: bash
-  :emphasize-lines: 1
+  :emphasize-lines: 1,3,4
+  :caption: Creating a user
 
-  $ alias
+  # id keylee
+  id: keylee: no such user
+  # useradd keylee
+  # id keylee
+  uid=1001(keylee) gid=1001(keylee) groups=1001(keylee)
+
+When you create a new useraccount, and do not specify and user-id for this user, the next
+free number will be used. In this case, there was only a user with uid 1000, so the new
+account will be created with uid 1001.
+
+You can specify some options to **useradd** to modify the settings used for creating the
+new account:
+
+* **-c** specifies the contents of the comment / GECOS field
+* **-d** specified the home-directory to use, normally this will be /home/<username>
+* **-e YYYY-MM-DD**, specified an expiration-date for the account
+* **-u** uid-number, use this specific UID instead of the next free number
+
+There are many more options to specify, which you can find the the manual-page for
+**useradd**, but these are the most-used flags.
+
+.. index:: getent
+
+To create a useraccount with some more settings filled in:
+
+.. code-block:: bash
+  :emphasize-lines: 1,2
+  :caption: Creating a user
+
+  # useradd -c "Malcolm Reynolds" -e 2018-12-31 -m -s /bin/bash -u 1020 -d /home/mal mal
+  # getent passwd mal
+  mal:x:1020:1020:Malcolm Reynolds:/home/mal:/bin/bash
+
+Here we use the **getent** command to lookup account-information. Earlier we used **id**,
+which only gave us the names and id-numbers for the user and groups. Getent is a generic
+lookup function, which can be used to lookup users, hosts, networks, network-services and
+many other things. Useraccount information can be found by doing **getent passwd**, as
+seen here. This returns the line from the :file:`/etc/passwd` file matching our query.
+
+.. seealso:: man getent(1), man useradd(8)

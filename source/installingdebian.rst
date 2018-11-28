@@ -26,3 +26,9 @@ locales
 keyboard (American English)
 Loading installer components (automattic)
 Configure the network (automattic)
+
+
+.. describe:: PAPER
+
+   You can set this variable to select a paper size.
+

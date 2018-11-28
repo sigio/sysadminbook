@@ -1,10 +1,10 @@
 .. MIT License
    Copyright © 2018 Sig-I/O Automatisering / Mark Janssen, Licensed under the MIT license
 
-ChapterName
-===========
+Dummy Chapter
+=============
 
-Sometext
+Just a placeholder
 
 .. seealso:: See Also here
 
@@ -14,17 +14,26 @@ Sometext
 
 .. note:: Beware of this note
 
+.. sidebar:: Sidebar
 
-.. sidebar:: Minimal Image
-
-  If possible, don't use the minimal image, as this makes installation of CentOS a lot harder
+  Sidebar text
 
   
 .. image:: _static/images/centos-7-install-boot.png
-   :alt: Installing CentOS 7.x
-
+   :alt: Some Image
 
 .. code-block:: bash
   :emphasize-lines: 1
+  :caption: some caption
 
-  $ alias
+  $ some shell output
+
+
+.. hlist::
+   :columns: 3
+
+   * A list of
+   * short items
+   * that should be
+   * displayed
+   * horizontally
