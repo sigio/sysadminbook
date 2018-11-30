@@ -247,6 +247,7 @@ Like adding a user with useradd, groups can be created with the **groupadd** com
 
 .. code-block:: none
   :caption: Groupadd usage
+  :emphasize-lines: 1,16,17
 
   # groupadd --help
   Usage: groupadd [options] GROUP
@@ -267,4 +268,67 @@ Like adding a user with useradd, groups can be created with the **groupadd** com
   # getent group firefly
   firefly:x:200:
 
+.. index:: usermod
+
+Adding users to a group
+-----------------------
+
+Using **usermod** we can make changes to a useraccount, one of these changes is their
+group-membership.
+
+.. code-block:: none
+  :linenos:
+  :caption: Usermod usage
+  :emphasize-lines: 1,28,30,31,33,34
+
+  # usermod --help
+  Usage: usermod [options] LOGIN
+  
+  Options:
+    -c, --comment COMMENT         new value of the GECOS field
+    -d, --home HOME_DIR           new home directory for the user account
+    -e, --expiredate EXPIRE_DATE  set account expiration date to EXPIRE_DATE
+    -f, --inactive INACTIVE       set password inactive after expiration
+                                  to INACTIVE
+    -g, --gid GROUP               force use GROUP as new primary group
+    -G, --groups GROUPS           new list of supplementary GROUPS
+    -a, --append                  append the user to the supplemental GROUPS
+                                  mentioned by the -G option without removing
+                                  him/her from other groups
+    -h, --help                    display this help message and exit
+    -l, --login NEW_LOGIN         new value of the login name
+    -L, --lock                    lock the user account
+    -m, --move-home               move contents of the home directory to the
+                                  new location (use only with -d)
+    -o, --non-unique              allow using duplicate (non-unique) UID
+    -p, --password PASSWORD       use encrypted password for the new password
+    -R, --root CHROOT_DIR         directory to chroot into
+    -s, --shell SHELL             new login shell for the user account
+    -u, --uid UID                 new UID for the user account
+    -U, --unlock                  unlock the user account
+    -Z, --selinux-user SEUSER     new SELinux user mapping for the user account
+
+  # id mal
+  uid=1020(mal) gid=1020(mal) groups=1020(mal)
+  # usermod -a -G firefly mal
+  # id mal
+  uid=1020(mal) gid=1020(mal) groups=1020(mal),200(firefly)
+  # usermod -a -G mal mal
+  # id mal
+  uid=1020(mal) gid=1020(mal) groups=1020(mal)
+
+As you can see, **usermod** can be used for many changes on useraccounts. In line 30 we add the user *mal* to the group *firefly* using the **-a** and **-G** options. If you don't add the **-a** option, you replace the group-membership for the user to only the specified groups, as can be seen in line 33.
+
+If you just want to set the group-membership to a specific list of groups, these can be listed as comma-seperated list on the commandline:
+
+.. code-block:: none
+  :caption: Usermod with multiple groups
+  :emphasize-lines: 1,2,4,5
+
+  # usermod -G mal,firefly,video,ftp mal
+  # id mal
+  uid=1020(mal) gid=1020(mal) groups=1020(mal),39(video),50(ftp),200(firefly)
+  # usermod -G mal,firefly mal
+  # id mal
+  uid=1020(mal) gid=1020(mal) groups=1020(mal),200(firefly)
 
