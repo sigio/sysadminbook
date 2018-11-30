@@ -202,3 +202,69 @@ many other things. Useraccount information can be found by doing **getent passwd
 seen here. This returns the line from the :file:`/etc/passwd` file matching our query.
 
 .. seealso:: man getent(1), man useradd(8)
+
+.. index:: /etc/group, /etc/gshadow, groups
+
+The /etc/group file
+-------------------
+
+The counterpart of :file:`/etc/passwd` is :file:`/etc/group`. This file is used to
+store the group-membership of all the users on the system in a format like the other
+account database files.
+
+:file:`/etc/group` contains 4 fields:
+
+* group name: The name of the group, usually in lowercase and preferably without spaces.
+* group password: Like in the case of :file:`/etc/passwd`, this will usually contain an
+  'x' to signify the (optional) password is stored in a shadow file. In the case of groups
+  this is :file:`/etc/gshadow`.
+* group id: a numeric id used to uniquely identify this group.
+* group members: a comma-seperated list of users who are a member of this group.
+
+An example :file:`/etc/group` entry could look like this:
+
+.. code-block:: none
+  :caption: Example /etc/group entry
+
+  firefly:x:200:mal,zoe,wash,inara,jayne,kaylee,simon,river,book
+
+Users in Linux will have a primary group, this is the group identified by the *gid* field
+in their :file:`/etc/passwd` entry. If they are a member of any other groups, their name
+will be listed in the *group members* field in :file:`/etc/group`. In general, the primary
+group a user is in will not have their name listed in the *group members* field.
+
+As we have seen, the :file:`/etc/group` file has a password-field, which is used to ask
+for a password when a user changes groups. In general this feature isn't used much if at
+all, but support for this is still present in all Linux distributions.
+
+
+.. index:: groupadd
+
+Adding a group
+--------------
+
+Like adding a user with useradd, groups can be created with the **groupadd** command:
+
+.. code-block:: none
+  :caption: Groupadd usage
+
+  # groupadd --help
+  Usage: groupadd [options] GROUP
+
+  Options:
+    -f, --force                   exit successfully if the group already exists,
+                                  and cancel -g if the GID is already used
+    -g, --gid GID                 use GID for the new group
+    -h, --help                    display this help message and exit
+    -K, --key KEY=VALUE           override /etc/login.defs defaults
+    -o, --non-unique              allow to create groups with duplicate
+                                  (non-unique) GID
+    -p, --password PASSWORD       use this encrypted password for the new group
+    -r, --system                  create a system account
+    -R, --root CHROOT_DIR         directory to chroot into
+
+  # groupadd -g 200 firefly
+  # getent group firefly
+  firefly:x:200:
+
+
