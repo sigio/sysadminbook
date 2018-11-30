@@ -45,6 +45,16 @@ Contributions and Acknowledgements
 
 .. todo:: Add list of contributors and acknowledgements
 
+Contributions to this book are very welcome, when more of the groundwork has been
+prepared, the source of this book will be uploaded to a public github repository, and
+contributions can be made using forks and pull-requests. Welcome contributions include:
+
+* New chapters for parts that are currently missing
+* Exercises and examples
+* Additions and notes for items that are different on different Linux distributions
+* Fixes and spelling-errors
+
+
 Images Used
 ^^^^^^^^^^^
 
