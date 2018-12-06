@@ -23,8 +23,9 @@ Contents:
    essentialcommands
    filesystemtree
    users
+   using-vi
+   networking
 
-   newpage
 
 
 Indices and tables
