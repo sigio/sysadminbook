@@ -44,6 +44,9 @@ help:
 	@echo "  coverage   to run coverage check of the documentation (if enabled)"
 	@echo "  dummy      to check syntax errors of document sources"
 
+rsync:
+	rsync -vPar --delete build/html/ shell:/srv/linuxsysadminbook.sigio.nl/html/
+
 .PHONY: clean
 clean:
 	rm -rf $(BUILDDIR)/*
