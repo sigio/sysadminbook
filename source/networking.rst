@@ -335,6 +335,50 @@ If you select *Edit*, you can configure the network-settings for the chosen devi
 .. image:: _static/images/centos-7-nmtui.png
    :alt: Configuring a network with nmtui
 
+nm-connection-editor
+^^^^^^^^^^^^^^^^^^^^
 
+If you are on a system with the GUI installed, you can (as root) run **nm-connection-editor**, which will
+show you the following interface, from which you can configure your networking.
 
+.. image:: _static/images/centos-7-nm-connection-editor.png
+   :alt: Configuring a network with nm-connection-editor
 
+configuration files
+^^^^^^^^^^^^^^^^^^^
+
+As stated previously, all changes made using the various configuration-tools just result
+in changes in the configuration-files that are actually used for network-configuration.
+These files can be found in **/etc/sysconfig/network-scripts/**. For example, the
+configuration for the **eth** interface will be in the
+:file:`/etc/sysconfig/network-scripts/ifcfg-eth0`. file.
+
+.. code-block:: none
+  :caption: Contents of ifcfg-eth0
+  :emphasize-lines: 1
+
+  # cat /etc/sysconfig/network-scripts/ifcfg-eth0
+  TYPE=Ethernet
+  BOOTPROTO="static"
+  DEFROUTE=yes
+  NAME=eth0
+  DEVICE=eth0
+  ONBOOT=yes
+  PROXY_METHOD=none
+  BROWSER_ONLY=no
+  IPADDR=192.168.122.7
+  PREFIX=24
+  GATEWAY=192.168.122.1
+  DNS1=8.8.8.8
+  IPV4_FAILURE_FATAL=no
+  IPV6INIT=no
+  UUID=5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03
+  IPADDR1=172.16.10.20
+  PREFIX1=24
+
+As can be seen here, the configured IP-addres can be found under the **IPADDR** variable,
+and other related networking values under **PREFIX** and **GATEWAY**. The secondary (and further)
+addresses will have a number appended, so **ADDRESS1**, **PREFIX1**, **GATEWAY1**, etcetera.
+
+You can enable and disable network-interface configurations using **ifup eth0** and
+**ifdown eth0**.
