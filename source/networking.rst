@@ -353,6 +353,12 @@ These files can be found in **/etc/sysconfig/network-scripts/**. For example, th
 configuration for the **eth** interface will be in the
 :file:`/etc/sysconfig/network-scripts/ifcfg-eth0`. file.
 
+.. sidebar:: Debian
+
+  On debian systems, nm-cli, nm-tui and nm-connection-editor are also available, but
+  save their configurations in various files in :file:`/etc/NetworkManager/system-connections`
+  while the normal debian-method saves configuration in :file:`/etc/network/interfaces`.
+
 .. code-block:: none
   :caption: Contents of ifcfg-eth0
   :emphasize-lines: 1
@@ -382,3 +388,51 @@ addresses will have a number appended, so **ADDRESS1**, **PREFIX1**, **GATEWAY1*
 
 You can enable and disable network-interface configurations using **ifup eth0** and
 **ifdown eth0**.
+
+Network Configuration in Debian/Ubuntu
+--------------------------------------
+
+In debian, the network-manager interfaces named before are also available, but on systems
+with wired networks these tools are almost never used. Debian's preferred method of
+network-configuration is from the :file:`/etc/network/interfaces` file, or a file in the
+:file:`/etc/network/interfaces.d/` directory.
+
+.. code-block:: none
+  :caption: Contents of ifcfg-eth0
+  :linenos:
+  :emphasize-lines: 1
+
+  $ cat /etc/network/interfaces 
+  # This file describes the network interfaces available on your system/interfaces 
+  # and how to activate them. For more information, see interfaces(5).
+
+  source /etc/network/interfaces.d/*
+
+  # The loopback network interface
+  auto lo
+  iface lo inet loopback
+
+  auto ens3
+  iface ens3 inet static
+    address 192.168.122.9
+    netmask 255.255.255.0
+    gateway 192.168.122.1
+
+In the configuration above, you can see Debian's default network-configuration. In line 4
+we see the *source* statement, which includes all files in
+:file:`/etc/network/interfaces.d/`, which is a directory where you can add more
+configuration files for networking.
+
+In line 8 and 11, **auto <interface>** means that this interface will be brought online
+during booting.
+
+Line 9 configures the loopback interface, which only has the default configuration. Line
+12-14 configure the ens3 interface with the specified ip-address, netmask and gateway.
+
+The :file:`/etc/network/interfaces` file supports many options and
+configuration-directives for various networking features, such as vlan's, secondary
+ip-addresses, routes, dhcp-options and commands to be run before or after bringing up the
+network-interface. The *interfaces(5)* man-page documents all the available options.
+
+To activate or deactivate an interface, you can run **ifup <interface>** or **ifdown**,
+both of which also take the **-a** argument, to act on all interfaces.
