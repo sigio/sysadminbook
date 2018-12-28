@@ -177,7 +177,7 @@ back and forth between 2 paths, **cd -** will get the job done quickly.
 
 .. index:: pushd, popd, dirs
 
-Another usefull set of commands to know are **pushd**, **popd** and **dirs**. Using the
+Another useful set of commands to know are **pushd**, **popd** and **dirs**. Using the
 pushd command, you can change to a directory and also push this directory to a stack, you
 can then later go back to this pushed directory by using **popd**, which pops (removes) a
 directory from the stack and goes there. You can add multiple directories on the stack, and
