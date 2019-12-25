@@ -47,3 +47,24 @@ Unit file       Function
 .slice          A hierarchical resource limitation
 =============   ===================================================
 
+Systemd Targets
+---------------
+
+Systemd targets can be seen as a replacement for the runlevels that we had in previous
+init-systems like sysv-init. They describe groups of services and processes that we want
+to have available in a specific use-case.
+
+Using the **systemctl isolate <target>** command, we can ask systemd to switch to a specific
+target set of services.
+
+The targets available to the current system can be listed using the **systemctl
+list-units | grep target** command, and the default target can be queried or configured
+using **systemctl get-default** and **systemctl set-default <target>** commands.
+
+.. index::
+   single: systemctl
+   single: target
+   single: systemctl; set-default
+   single: systemctl; get-default
+   single: systemctl; list-units
+   single: systemctl; isolate
