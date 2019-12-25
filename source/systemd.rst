@@ -1,39 +1,49 @@
 .. MIT License
    Copyright © 2018 Sig-I/O Automatisering / Mark Janssen, Licensed under the MIT license
 
-Dummy Chapter
-=============
+Systemd
+=======
 
-Just a placeholder
+Systemd is an important set ot tools and processes related to booting Linux, starting and
+stopping of services, mounting filesystems, and various other system tasks. 
 
-.. seealso:: See Also here
+Most modern Linux systems have switched to using Systemd in recent years, this has
+resulted in many distributions becoming a lot more like one another, where before there
+were many variations in startup-, service- and resource-management. So most of this
+chapter will be relevant for Debian versions 8 and higher, centos and redhat version 7 and
+up, and ubuntu version 16.x
 
-.. todo:: Something todo
+Systemd as pid-1
+----------------
 
-.. warning:: A Warning
+Unix systems usually start a single 'master' process, which takes care of starting other
+processes and services. When this initial process stops, the system becomes unusable. This
+process was generally named :file:`/sbin/init`. Systemd also performs the task of the
+init-process, and you can find it running on any systemd-enabled system with process-id 1.
 
-.. note:: Beware of this note
+Systemd's tasks as init consist of starting processes, keeping track of these processes
+and any child-processes started from these, killing processes and cleaning up after them,
+and finally shutting down or restarting the system.
 
-.. sidebar:: Sidebar
+Systemd as Service Manager
+--------------------------
 
-  Sidebar text
+Systemd is also a Service Manager, this means that it will make sure certain services are
+running, and even restarting these when they fail or exit, or starting specific tasks when
+an incoming network-connection is detected.
 
-  
-.. image:: _static/images/centos-7-install-boot.png
-   :alt: Some Image
+Systemd uses configuration files, named 'unit-files', which come in various variants. Each
+type has it's own function. A unit file has a name, which can be chosed freely, and an
+extension, which designates it's type. Possible extensions are:
 
-.. code-block:: bash
-  :emphasize-lines: 1
-  :caption: some caption
+=============   ===================================================
+Unit file       Function
+=============   ===================================================
+.service        Determines how to start a specific service
+.socket         Socket-based activation configuration
+.mount          Configuration for mounts and filesystems
+.timer          Timed or recurring jobs
+.target         Systemd targets, a collection of tasks
+.slice          A hierarchical resource limitation
+=============   ===================================================
 
-  $ some shell output
-
-
-.. hlist::
-   :columns: 3
-
-   * A list of
-   * short items
-   * that should be
-   * displayed
-   * horizontally
