@@ -46,7 +46,7 @@ help:
 
 rsync:
 	#rsync -vPar --delete build/html/ shell:/srv/linuxsysadminbook.sigio.nl/html/
-	rsync -vPar --delete build/html/ sigio@s10.linuxcolo.net:/srv/linuxsysadminbook.sigio.nl/html/
+	rsync -vPar --delete build/html/ sigio@rightarm.sig-io.nl:/srv/linuxsysadminbook.sigio.nl/html/
 
 .PHONY: clean
 clean:
